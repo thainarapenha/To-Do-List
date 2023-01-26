@@ -2,6 +2,11 @@
   --black: #000;
   --white: #FFF;
   --gray: #D9D9D9;
+  --gray-500: rgb(165, 165, 165);
+}
+
+li {
+  list-style: none;
 }
 
 body {
@@ -11,5 +16,11 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, span, p, button, input, div {
+  margin: 0;
   font-family: 'Roboto', sans-serif;
+}
+
+.containerApp {
+  display: flex;
+  justify-content: center;
 }

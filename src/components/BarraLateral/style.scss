@@ -1,0 +1,29 @@
+.menu {
+  width: 25%;
+  height: 90vh;
+  background-color: var(--gray-500);
+
+  nav {
+    margin-top: 15%;
+  }
+  li {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  li:hover {
+    font-weight: 600;
+  }
+  h2, li {
+    margin: 5% 0;
+  }
+  img {
+    width: 100%;
+    max-width: 30px;
+    margin-right: 5px;
+  }
+  .btn {
+    display: flex;
+    align-items: center;
+  }
+}
