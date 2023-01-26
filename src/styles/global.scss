@@ -1,0 +1,15 @@
+:root {
+  --black: #000;
+  --white: #FFF;
+  --gray: #D9D9D9;
+}
+
+body {
+  margin: 0;
+  background-color: var(--gray);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, span, p, button, input, div {
+  font-family: 'Roboto', sans-serif;
+}

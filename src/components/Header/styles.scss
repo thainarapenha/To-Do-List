@@ -1,0 +1,13 @@
+header {
+  width: 100%;
+  padding: 10px 28px;
+  background-color: var(--black);
+  
+  position: sticky; //para continuar enquanto da scroll na tela
+  top: 0;
+
+  h1 {
+    color: var(--white);
+    margin: 0;
+  }
+}

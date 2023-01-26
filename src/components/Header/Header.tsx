@@ -1,8 +1,11 @@
+import "./styles.scss";
 import { memo } from "react";
 
 export function HeaderComponent() {
   return (
-    <header>To-Do List</header>
+    <header>
+      <h1>To-Do List</h1>
+    </header>
   )
 }
 

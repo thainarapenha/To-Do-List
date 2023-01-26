@@ -1,4 +1,5 @@
-import './App.css'
+// import './App.css'
+import "./styles/global.scss";
 import { HeaderComponent } from './components/Header/Header';
 
 function App() {
