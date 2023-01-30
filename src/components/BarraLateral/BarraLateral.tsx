@@ -1,17 +1,18 @@
 import "./style.scss";
-import { memo } from "react";
-import hojeImg from "../../assets/Icons/today.svg";
-import semanaImg from "../../assets/Icons/week.svg";
 import { Button } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
+import cxEntrada from "../../assets/Icons/inbox.svg";
+import hojeImg from "../../assets/Icons/today.svg";
+import semanaImg from "../../assets/Icons/week.svg";
 
-export function BarraLateralComponent(){
+export const BarraLateral: React.FC = () => {
   return(
     <div className="menu">
       <nav>
         <ul>
           <h2>Menu</h2>
           
+          <li><img src={cxEntrada}/>Caixa de entrada</li>
           <li><img src={hojeImg}/>Hoje</li>
           <li><img src={semanaImg}/>Essa semana</li>
           
@@ -26,5 +27,3 @@ export function BarraLateralComponent(){
     </div>
   );
 }
-
-export const BarraLateral = memo(BarraLateralComponent);

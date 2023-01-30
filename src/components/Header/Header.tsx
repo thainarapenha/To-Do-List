@@ -1,12 +1,9 @@
 import "./styles.scss";
-import { memo } from "react";
 
-export function HeaderComponent() {
+export const Header: React.FC = () =>{
   return (
     <header>
       <h1>To-Do List</h1>
     </header>
   )
 }
-
-export const Header = memo(HeaderComponent);

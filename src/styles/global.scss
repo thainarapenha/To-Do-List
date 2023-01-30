@@ -20,7 +20,12 @@ h1, h2, h3, h4, h5, h6, span, p, button, input, div {
   font-family: 'Roboto', sans-serif;
 }
 
-.containerApp {
+.containerApp, .containerToDo {
   display: flex;
-  justify-content: center;
+}
+
+.containerToDo {
+  width: 100%;
+  flex-direction: column;
+  border: 1px solid red;
 }
