@@ -4,14 +4,16 @@ import { Paper, ListItem, ListItemButton, ListItemIcon, ListItemText, Checkbox, 
 
 interface TarefaProps {
   tarefa: Note
+  deleteTarefa(DeleteTarefa: number): void,
 }
-export const ItensTarefa = ({tarefa}: TarefaProps) => {
+
+export const ItensTarefa = ({tarefa, deleteTarefa}: TarefaProps) => {
   return (
     <Paper>
-      <ListItem
+      <ListItem style={{marginTop: "1em"}}
         secondaryAction={
           <IconButton edge="end" aria-label="delete">
-            <DeleteIcon />
+            <DeleteIcon onClick={() => deleteTarefa(tarefa.id)}/>
           </IconButton>
         }
         disablePadding
@@ -24,9 +26,7 @@ export const ItensTarefa = ({tarefa}: TarefaProps) => {
               disableRipple
             />
           </ListItemIcon>
-          <span>{tarefa.nomeTarefa}</span>
-          {/* <ListItemText primary={`Line item`}/> */}
-          
+          <span>{tarefa.nomeTarefa}</span>          
         </ListItemButton>
       </ListItem>
     </Paper>
