@@ -25,5 +25,10 @@
   .btn {
     display: flex;
     align-items: center;
+
+    input {
+      height: 30px;
+      border: none;
+    }
   }
 }

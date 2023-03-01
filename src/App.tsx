@@ -1,18 +1,18 @@
 import "./styles/global.scss";
-import { HeaderComponent } from './components/Header/Header';
-import { FormsComponent } from "./components/Forms/Forms";
-import { FooterComponent } from "./components/Footer/Footer";
-import { BarraLateralComponent } from "./components/BarraLateral/BarraLateral";
+import { Header } from './components/Header/Header';
+import { Forms } from "./components/Forms/Forms";
+import { Footer } from "./components/Footer/Footer";
+import { BarraLateral } from "./components/BarraLateral/BarraLateral";
 
 function App() {
   return (
     <div>
-      <HeaderComponent/>
+      <Header/>
       <div className="containerApp">
-        <BarraLateralComponent/>
-        <FormsComponent/>
+        <BarraLateral/>
+        <Forms/>
       </div>
-      <FooterComponent/>
+      <Footer/>
     </div>
   );
 }
