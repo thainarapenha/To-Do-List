@@ -1,35 +1,30 @@
-import { useState } from "react";
-import { Button, Container, TextField, Paper } from '@mui/material';
-import { ItensTarefa } from "../ItensTarefa/ItensTarefa";
-import { Note } from "../../config/interfaces";
-import { ToastContainer, toast } from 'react-toastify';
+import React, { useState } from 'react';
+import Paper from "@mui/material/Paper";
 import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
+import { Button, Container, TextField } from '@mui/material';
 
-export const Forms: React.FC = ()=> {
+export const Forms: React.FC = () => {
   const [textTarefa, setTextTarefa] = useState("");
-  const [ listaTarefas, setListaTarefas ] = useState<Note[]>([]);
+  const [listaTarefas, setListaTarefas] = useState([]);
 
-  const AddTareda = (): void => {
-    if(textTarefa == "") {
+  const AddTareda = () => {
+    if (textTarefa == "") {
       toast.error("Digite alguma tarefa");
     } else {
-      const idRandom = (num: number) => Math.floor(Math.random() * num)
-      const novaTarefa = {id: idRandom(99999999), nomeTarefa: textTarefa }
-  
-      setListaTarefas([...listaTarefas, novaTarefa]);
+
+      setTextTarefa("");
+      toast.success("Tarefa criada com sucesso!");
     }
   }
 
-  const deleteTarefa = (DeleteTarefaById: number): void => {
-    setListaTarefas(listaTarefas.filter((nomeTarefa) => nomeTarefa.id !== DeleteTarefaById));
-  }
-
   return (
-    <Container maxWidth="md" style={{ padding: "2em 0" }}>
+    <Container maxWidth="md" style={{ padding: "2em" }}>
       <ToastContainer
         autoClose={2500}
         pauseOnHover={false}
       />
+
       <Paper style={{ padding: "1em" }}>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <TextField
@@ -38,23 +33,22 @@ export const Forms: React.FC = ()=> {
             variant="outlined"
             value={textTarefa}
             onChange={(event) => setTextTarefa(event.target.value)}
-            fullWidth
-          />
-          <Button
+            fullWidth />
+
+          <Button style={{ marginLeft: "20px" }}
             variant="text"
             onClick={AddTareda}
-            style={{ marginLeft: "20px" }}
           >
             Adicionar
           </Button>
         </div>
 
       </Paper>
-        {listaTarefas.map((tarefas, key) => (
+        {/* {listaTarefas.map((tarefas, key) => (
           <div>
             <ItensTarefa key={key} tarefa={tarefas} deleteTarefa={deleteTarefa}/>
           </div>
-        ))}
+        ))} */}
     </Container>
   );
 }

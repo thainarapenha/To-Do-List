@@ -1,6 +1,7 @@
+import React from 'react';
 import "./styles.scss";
 
-export const Header: React.FC = () =>{
+export const Header: React.FC = () => {
   return (
     <header>
       <h1>To-Do List</h1>
