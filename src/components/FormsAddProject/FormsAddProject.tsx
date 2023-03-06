@@ -1,3 +1,4 @@
+import "./style.scss";
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
@@ -6,7 +7,7 @@ import { Button, Container, List } from '@mui/material';
 import { addProjeto } from '../../store/projectSlicer';
 
 export const FormsAddProject: React.FC = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const [novoProjeto, setNovoProjeto] = useState("");
   const dispatch = useDispatch();
 
@@ -29,6 +30,7 @@ export const FormsAddProject: React.FC = () => {
     } else {
       dispatch(addProjeto(novoProjeto));
       setNovoProjeto("");
+      CloseHandle();
       toast.success("Projeto criado com sucesso!");
     }
   }
@@ -47,14 +49,14 @@ export const FormsAddProject: React.FC = () => {
           Criar novo projeto
         </Button>
         :
-        <List>
+        <List className="DivList">
           <input
-            placeholder='oi'
+            placeholder="Digite o nome do projeto"
             onChange={InputProject}
           />
-          <div>
-            <button onClick={AddNewProject}>criar</button>
-            <button onClick={CloseHandle}>cancelar</button>
+          <div className="btn">
+            <button onClick={AddNewProject}>Criar</button>
+            <button onClick={CloseHandle}>Cancelar</button>
           </div>
         </List>
       }
