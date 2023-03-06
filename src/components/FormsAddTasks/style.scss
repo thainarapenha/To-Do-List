@@ -1,0 +1,52 @@
+.containerTask {
+  display: flex;
+}
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3%;
+  
+  #btnTarefa {
+    color: white;
+    background-color: #00BCD5;
+  }
+}
+
+#divLinha {
+  width: 100%;
+  margin-top: 2%;
+  border: 1px solid #00BCD5;
+}
+
+.sectionForms{
+  width: 40%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  #btnTarefa {
+    color: white;
+    background-color: #00BCD5;
+  }
+}
+
+.divTag {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  button {
+    width: 200px;
+    margin-left: 5%;
+    color: #00BCD5;
+    border: 1px solid #00BCD5;
+    
+    &:hover {
+      color: white;
+      background-color: #00BCD5;
+    }
+  }
+}
