@@ -5,8 +5,8 @@ import { BarraLateral } from "./components/BarraLateral/BarraLateral";
 function App() {
   return (
     <div className="containerApp">
-      <Forms/>
       <BarraLateral/>
+      <Forms/>
     </div>
   );
 }
