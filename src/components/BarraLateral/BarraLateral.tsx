@@ -1,59 +1,74 @@
 import "./style.scss";
-import React, { useState } from 'react';
+import React from 'react';
+import List from "@mui/material/List/List";
 import { RootState } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
-import AddIcon from '@mui/icons-material/Add';
-import LabelImportantIcon from '@mui/icons-material/LabelImportant';
-import { addProjeto } from "../../store/projectSlicer";
-import { ToastContainer, toast } from 'react-toastify';
+import { ItemProject } from "../ItemProject/ItemProject";
+import { changeProject } from "../../store/projectSlicer";
+import { FormsAddProject } from "../FormsAddProject/FormsAddProject";
+import imgInbox from "../../assets/Icons/inbox.svg";
+import imgToday from "../../assets/Icons/today.svg";
+import imgWeek from "../../assets/Icons/week.svg";
+import imgArrow from "../../assets/Icons/arrow.svg";
 
 export const BarraLateral: React.FC = () => {
+  const [inbox, today, week, ...projects] = useSelector(
+    (state: RootState) => state.project.projetos,
+  );
+  const dispatch = useDispatch();
 
-  const [novoProjeto, setNovoProjeto] = useState("");
-  const project = useSelector((state: RootState) => state.project.projetos);
-  const dispach = useDispatch();
-
-
-  const AddNovoProjeto = () => {
-    if (novoProjeto == "") {
-      toast.error("Digite um nome para o projeto");
-      return;
-    } else {
-      dispach(addProjeto(novoProjeto));
-      setNovoProjeto("");
-      toast.success("Projeto criado com sucesso!");
-    }
-  }
+  const ClickProject = (id: number) => {
+    dispatch(changeProject(id));
+  };
 
   return (
-    <div className="menu">
-      <nav>
-        <ul>
-          <h2>Menu</h2>
+    <section className="menu">
+      <div className="divMenu">
+        <div>
+          <img/>
+          <text>
+            <span>My</span>
+            List
+          </text>
+        </div>
+      </div>
+      
+      <h2>Menu</h2>
+      <List className="navMenu">
+        <ItemProject
+          id={inbox.id}
+          key={inbox.id}
+          title={inbox.title}
+          icon={imgInbox}
+          onClick={() => ClickProject(inbox.id)}
+        />
+        <ItemProject
+          id={today.id}
+          key={today.id}
+          title={today.title}
+          icon={imgToday}
+          onClick={() => ClickProject(today.id)}
+        />
+        <ItemProject
+          id={week.id}
+          key={week.id}
+          title={week.title}
+          icon={imgWeek}
+          onClick={() => ClickProject(week.id)}
+        />
 
-          {project.map((item, key) => (
-            <li key={key}>
-              <LabelImportantIcon /> | {item.title}
-            </li>
-          ))}
+        <FormsAddProject />
 
-          <ToastContainer
-            autoClose={2500}
-            pauseOnHover={false}
+        {projects.map(project => (
+          <ItemProject
+            id={project.id}
+            key={project.id}
+            title={project.title}
+            icon={imgArrow}
+            onClick={() => ClickProject(project.id)}
           />
-          <div className="btn" >
-            <input
-              type="text"
-              placeholder=" Adicionar projeto"
-              value={novoProjeto}
-              onChange={(event) => setNovoProjeto(event.target.value)}
-            />
-            <AddIcon style={{cursor: "pointer", background: "white", padding: "4px"}}
-              onClick={AddNovoProjeto}
-            />
-          </div>
-        </ul>
-      </nav>
-    </div>
+        ))}
+      </List>
+    </section>
   );
 }

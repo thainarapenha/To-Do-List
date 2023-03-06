@@ -4,6 +4,7 @@ import { gerarID } from "../utils/gerarID";
 
 const initialState = {
   nextId: 3,
+  activeProject: 0,
   projetos: [
     { id: 0, title: 'Caixa de entrada', notas: [] as NoteData[], deletar: false },
     { id: 1, title: 'Hoje', notas: [] as NoteData[], deletar: false },
@@ -25,6 +26,10 @@ const projectSlicer = createSlice({
       state.nextId += 1;
 
       state.projetos.push(novoProjeto);
+    },
+
+    changeProject: (state, { payload }) => {
+      state.activeProject = payload;
     },
 
     updateProjetos: (state, {payload}) => {
@@ -89,6 +94,7 @@ const projectSlicer = createSlice({
 
 export const {
   addProjeto,
+  changeProject,
   updateProjetos,
   removerProjeto,
   addNotas,
