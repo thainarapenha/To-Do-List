@@ -47,7 +47,7 @@ const projectSlicer = createSlice({
 
     addNotas: (state, {payload}) => {
       state.projetos = state.projetos.map(projeto => {
-        if(projeto.id === payload.projetoID){
+        if(projeto.id === payload.idProject){
           const novaNota: NoteData = {
             id: gerarID(),
             ...payload.notas,
@@ -83,8 +83,8 @@ const projectSlicer = createSlice({
 
     removerNota: (state, {payload}) => {
       state.projetos = state.projetos.map(projeto => {
-        if(projeto.id === payload.projetoID){
-          projeto.notas = projeto.notas.filter(nota => nota.id !== payload.notaID);
+        if(projeto.id === payload.idProject){
+          projeto.notas = projeto.notas.filter(nota => nota.id !== payload.idTask);
         }
         return projeto;
       });

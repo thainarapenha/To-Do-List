@@ -20,6 +20,12 @@
   border: 1px solid #00BCD5;
 }
 
+.ContainerTasks {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5%;
+}
+
 .sectionForms{
   width: 40%;
   height: 50vh;
